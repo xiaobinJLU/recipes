@@ -1,8 +1,16 @@
 What happens when you initialize a repository? Why do you need to do it?
+git init
 
+的git init命令将创建一个新的 Git 仓库。它可以用于将现有的非版本控制项目转换为一个 Git 仓库或初始化一个新的空的存储库。所以这通常是你会在一个新的项目中运行的第一个命令，在一个已初始化的存储库，没有可用的大多数其他 Git 命令。
+
+执行git init创建.git在项目的根、 包含所有必需的元数据作为回购协议抵押品的子目录。除了从.git目录中，现有的项目保持不变 （不像 SVN、 Git 不需要.git在每个子目录中的文件夹）。
 How is the staging area different from the working directory and the repository?
 What value do you think it offers?
-
+git由三个部分组成：分别是working directory、staging area和history repository
+working directory是文件增删修改的地方，即实际操作的目录
+git工作区是git项目下的.git文件夹，其中，/.git/objects目录下包含了git项目开发过程当中的所有对象，是一个对象库
+staging area是/.git/index文件，index文件是一个索引的集合，索引指向了对象库当中由working directory文件（注意 git在意的是文件的内容）生成的blob对象，其中每个索引还保存了tree对象的相关信息，所谓的tree对象的即每个文件的目录结构
+history repository，git commit之后记录的归档
 How can you use the staging area to make sure you have one commit per logical
 change?
 
